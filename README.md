@@ -48,7 +48,19 @@ This project outlines the establishment of a robust Security Operations Center (
 <br>
 <img src="" alt="Disk Sanitization Steps"/>
 <br>
-  
+
+<h2>Key Learning/Reflections</h2> 
+
+This project offered invaluable hands-on experience in building a scalable and automated SOC environment. Key insights and learnings include:
 <br>
-<img src="" alt="Disk Sanitization Steps"/>
+- <b>Cloud Infrastructure Management:</b> Gained practical experience in deploying and managing virtual machines (Droplets) on a cloud platform like DigitalOcean, including network configuration and SSH access.
+- <b>Multi-Platform Integration:</b> Successfully integrated disparate security tools (Wazuh, TheHive, Shuffle, VirusTotal) to create a cohesive automation pipeline. This highlighted the complexities and benefits of API-driven security operations.
+- <b>SOAR Workflow Development:</b> Developed practical skills in designing and implementing automation workflows within Shuffle, including parsing alerts, performing external lookups (VirusTotal), and triggering actions in other platforms (TheHive, email).
+- <b>Endpoint Detection & Response (EDR) with Wazuh:</b> Deepened understanding of Wazuh's capabilities for endpoint monitoring, log collection, and rule-based alerting, crucial for initial threat detection.
+- <b>Incident Response Automation:</b> Learned how automated incident creation in TheHive can significantly reduce manual effort and accelerate the triage process for security analysts.
+- <b> Troubleshooting Integration Challenges:</b> Faced and overcame challenges related to API connectivity, data parsing (e.g., using regex for hash extraction), and permission configurations between various platforms, emphasizing the importance of detailed logging and debugging in complex environments.
 <br>
+
+<h2>Conclusion</h2>
+This project successfully established a comprehensive SOC automation environment, demonstrating the power of integrating open-source security tools for enhanced threat detection, incident management, and automated response. The end-to-end workflow, from endpoint monitoring with Wazuh to alert orchestration via Shuffle and incident creation in TheHive, showcases a practical approach to modern security operations. The skills acquired in cloud deployment, system integration, and automation logic are directly applicable to optimizing security workflows and improving response times in real-world SOC environments. This project serves as a robust foundation for future exploration into more advanced automation playbooks and security tool integrations.
+
