@@ -46,7 +46,10 @@ This project outlines the establishment of a robust Security Operations Center (
 <h3> Step 1: Virtual Machine Setup </h3>
 1. D
 <br>
-<img src="" alt="Disk Sanitization Steps"/>
+<img src="" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<br>
+<img src="" alt="Building a SOC Automation Environment Steps"/>
 <br>
 
 <h2>Key Learning/Reflections</h2> 
