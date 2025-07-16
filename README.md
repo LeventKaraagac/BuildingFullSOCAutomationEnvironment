@@ -43,11 +43,43 @@ This project outlines the establishment of a robust Security Operations Center (
 
 
 <h2>Project Walkthrough</h2>
-<h3> Step 1: Virtual Machine Setup </h3>
-1. D
+<h3> Step 1: Cloud Infrastructure Setup (DigitalOcean) </h3>
+1. Create DigitalOcean Droplets: Create the first Ubuntu Server 22.04 LTS Droplets on DigitalOcean. This Droplet will host the Wazuh Manager, Assign appropriate resources (e.g., CPU, RAM, storage) and select a region.
 <br>
-<img src="" alt="Building a SOC Automation Environment Steps"/>
+<img src="https://i.imgur.com/LFucZB2.png" alt="Building a SOC Automation Environment Steps"/>
 <br>
+<img src="https://i.imgur.com/t7NLiua.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. Create a firewall within DigitalOcean and create a rule that allows only SSH connection inbound from my public IP address. Then add the VM to the firewall from networking settings.
+<br>
+<img src="https://i.imgur.com/wbHsxMN.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/7OUMJvH.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+3. Access Droplet via SSH: Connect to the newly created Ubuntu Droplets using SSH. This is essential for installing and configuring the necessary software Wazuh
+<br>
+<img src="https://i.imgur.com/KDMtMe0.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<h3> Step 2: Wazuh Deployment and Configuration</h3>
+1. Install Wazuh Manager: Configuration of Wazuh is initiated using the curl command provided on its official website.
+<br>
+<img src="https://i.imgur.com/DBmt8kK.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. Access Wazuh Dashboard: To log in to Wazuh, a browser is opened, and the Wazuh server is accessed by typing https://<Public IP>.
+<br>
+<img src="https://i.imgur.com/6AuBwj9.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<h3> Step 3: TheHive Droplet and Configuration</h3>
+1. TheHive Droplet Creation (Ubuntu 22.04): Another Droplet, an Ubuntu 22.04 instance, is created for the second VM, which will host TheHive. This machine is also added to the firewall for protection.
+<br>
+<img src="https://i.imgur.com/oY0X8hO.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. TheHive SSH Access and Dependency Installation: SSH access is established to this new machine, and TheHive is downloaded. Dependencies such as ElasticSearch, Cassandra, and Java are installed by executing the necessary commands.
+<br>
+<img src="https://i.imgur.com/ItmRErC.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+
+
 <br>
 <img src="" alt="Building a SOC Automation Environment Steps"/>
 <br>
