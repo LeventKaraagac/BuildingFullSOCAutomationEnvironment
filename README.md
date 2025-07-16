@@ -122,9 +122,94 @@ This project outlines the establishment of a robust Security Operations Center (
 <br>
 <img src="https://i.imgur.com/8Jyr337.png" alt="Building a SOC Automation Environment Steps"/>
 <br>
-
+<h3> Step 4: Wazuh Agent Configuration</h3>
+1. Wazuh Agent Configuration (from Dashboard): Wazuh is configured from the dashboard, with the need to add an agent. During this process, a command provided by Wazuh is pasted into PowerShell to add the agent.
 <br>
-<img src="" alt="Building a SOC Automation Environment Steps"/>
+<img src="https://i.imgur.com/YA3aeoA.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/PF7BGkd.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. Start Wazuh Service: The Wazuh service is started with the provided command. The result of the agent setup can now be seen.
+<br>
+<img src="https://i.imgur.com/04o2uGi.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/S2waofC.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<h3> Step 5: Sysmon Log Ingestion and Verification</h3>
+1. Sysmon Telemetry Ingestion: To ensure logs are ingested into Wazuh, the ossec.conf config file in the Windows 10 VM (which has the Wazuh agent installed) is modified to ingest Sysmon telemetry. This file is found in the program files of Wazuh.
+<br>
+<img src="https://i.imgur.com/kaKWdS9.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. Check Sysmon Events on Wazuh Dashboard: Returning to the Wazuh dashboard, Sysmon events are checked.
+<br>
+<img src="https://i.imgur.com/pI7Dvjd.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<h3> Step 6: Mimikatz Simulation and Detection</h3>
+1. Mimikatz Exclusion Creation: An exclusion is created to allow Mimikatz to be downloaded in the downloads folder.
+<br>
+<img src="https://i.imgur.com/X77x253.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+2. Mimikatz Download: Mimikatz is downloaded from the GitHub page gentilkiwi/mimikatz.
+<br>
+<img src="https://i.imgur.com/lNuxpED.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+3. Mimikatz Execution: Mimikatz is executed by going to the directory where mimikatz resides executing the file with .\mimikatz.exe in powershell.
+<br>
+<img src="https://i.imgur.com/cmpLnKY.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+4. Check Mimikatz Events on Wazuh: Returning to Wazuh, events triggered because of Mimikatz are checked.
+<br>
+<img src="https://i.imgur.com/LK4lBXB.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+5. Mimikatz Alert Rule Creation: An alert rule is created that will trigger whenever Mimikatz is detected.
+<br>
+<img src="https://i.imgur.com/TOuUyMl.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<h3>Step 7: SOAR Integration and Automated Response</h3>
+1. SOAR Platform Connection (Shuffle): With Wazuh and the systems ready, the process now moves to connecting the SOAR platform (Shuffle), sending an alert with TheHive, and sending an email.
+2. Shuffle Account and Initial Configuration: A Shuffle account is opened, and the system is configured step by step. The first step involves getting the Wazuh alerts to the SOAR.
+<br>
+<img src="https://i.imgur.com/wmfw52v.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+3. Modify Wazuh ossec.conf for Integration Tags: The ossec.conf config file of Wazuh is modified to change and add integration tags.
+<br>
+<img src="https://i.imgur.com/MrtxLCv.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+4. Verify Alert Reception in SOAR: When Mimikatz is executed again, the alert is successfully received by the SOAR system.
+<br>
+<img src="https://i.imgur.com/uvO9xZS.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+5. Hash Value Extraction with Regex: To obtain the hash value of the file and send it to VirusTotal for reputation checking, a regex is used to select the specific output. Only the sha256 hash is extracted.
+<br>
+<img src="https://i.imgur.com/V3M9bC2.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+6. VirusTotal Integration in Automation Flow: VirusTotal is added to the automation flow and configured to get a hash report.
+<br>
+<img src="https://i.imgur.com/CwSPKDM.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/zHSCICR.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+7. Verify VirusTotal Step: The system is re-run to see if the VirusTotal step is working.
+<br>
+<img src="https://i.imgur.com/VQpd3Kg.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+8. TheHive Integration in Workflow: TheHive is added to the workflow. TheHive is configured to create an alert.
+<br>
+<img src="https://i.imgur.com/GBDVpGZ.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/9T8ulDz.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+9. Workflow Execution Result (TheHive Alert): The result of the workflow when executed and the alert result at TheHive are observed.
+<br>
+<img src="https://i.imgur.com/IscUKQd.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/ePjmYTz.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+10. Email Notification Setup: As the last step of the workflow, an email notification is added. So when the event is triggered by executing Mimikatz again, an incident is received on TheHive, and an email is received at the same time.
+<br>
+<img src="https://i.imgur.com/xM3JARo.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/QkdNGJQ.png" alt="Building a SOC Automation Environment Steps"/>
 <br>
 
 <h2>Key Learning/Reflections</h2> 
