@@ -78,7 +78,50 @@ This project outlines the establishment of a robust Security Operations Center (
 <br>
 <img src="https://i.imgur.com/ItmRErC.png" alt="Building a SOC Automation Environment Steps"/>
 <br>
-
+3. Cassandra File Editing: Cassandra's files are edited with the command nano /etc/cassandra/cassandra/yaml. The listen_address, rpc_address, and seed_address parameters need to be changed.
+<br>
+<img src="https://i.imgur.com/LdhXyDv.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/BISTCwt.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/tzHOAqe.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+4. Cassandra Service Management: The Cassandra service is then stopped, and older files from Cassandra are removed. After removing older Cassandra files, the Cassandra service is restarted.
+<br>
+<img src="https://i.imgur.com/x7wyg1R.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+5. Elasticsearch Configuration: Elasticsearch is configured using the command nano /etc/elasticsearch/elasticsearch.yml to uncomment and change cluster.name, node.name, network.host, http.port, and cluster.initial_master_node.
+<br>
+<img src="https://i.imgur.com/PJNmuMg.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/y9KpYWo.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/SQLM4tA.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+6. Elasticsearch Service Restart: After saving the configuration for the elasticsearch.yml file, the Elasticsearch service is restarted.
+<br>
+<img src="https://i.imgur.com/QIBNQyX.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+7. TheHive Directory Ownership Change: The owner of TheHive's directory is changed using the chown command to ensure TheHive has appropriate access rights.
+<br>
+<img src="https://i.imgur.com/hXZ29IC.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+8. TheHive Configuration File (application.conf): The configuration file of TheHive is configured with the command nano /etc/thehive/application.conf. Database configuration, hostname (to the IP address), index_name, and application base URL are changed.
+<br>
+<img src="https://i.imgur.com/HDeX1gP.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/jamMTd3.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/wkMh7R4.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/kPZA0te.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+9. Start TheHive and access via browser: TheHive is started using the provided commands. TheHive is accessed from a browser by typing https://<IP-Address>:9000.
+<br>
+<img src="https://i.imgur.com/uL9JyPP.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
+<img src="https://i.imgur.com/8Jyr337.png" alt="Building a SOC Automation Environment Steps"/>
+<br>
 
 <br>
 <img src="" alt="Building a SOC Automation Environment Steps"/>
